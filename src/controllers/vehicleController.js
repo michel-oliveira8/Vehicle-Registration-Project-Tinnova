@@ -20,6 +20,14 @@ const getById = async (req, res) => {
   res.status(200).json(getVehicleById);
 }
 
+const updateDataVehicles = async (req, res) => {
+  const { id } = req.params;
+  const { veiculo,marca, ano, descricao, vendido } = req.body;
+  const updateVehicles = await vehicleService.updateDataVehicles(id, veiculo,marca, ano, descricao, vendido);
+
+  res.status(200).json(updateVehicles);
+}
+
 const removeVehicle = async (req, res) => {
   const { id } = req.params;
   await vehicleService.removeVehicle(id);
@@ -31,5 +39,6 @@ module.exports = {
   create,
   getAllVehicles,
   getById,
+  updateDataVehicles,
   removeVehicle,
 }
