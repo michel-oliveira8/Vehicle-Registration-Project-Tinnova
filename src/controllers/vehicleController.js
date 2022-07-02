@@ -7,6 +7,13 @@ const create = async (req, res) => {
   res.status(201).json(createVehicle);
 }
 
+const getAllVehicles = async (_req, res) => {
+  const allVehicles = await vehicleService.getAllVehicles();
+
+  res.status(200).json(allVehicles);
+}
+
 module.exports = {
   create,
+  getAllVehicles,
 }
