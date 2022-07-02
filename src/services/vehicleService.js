@@ -11,7 +11,14 @@ const getAllVehicles = async () => {
   return allVehicles;
 }
 
+const getById = async (id) => {
+  const getVehicleById = await Vehicle.findByPk(id);
+
+  return getVehicleById;
+}
+
 module.exports = {
   create,
   getAllVehicles,
+  getById,
 };
