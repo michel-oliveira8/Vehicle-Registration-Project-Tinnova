@@ -17,8 +17,15 @@ const getById = async (id) => {
   return getVehicleById;
 }
 
+const removeVehicle = async (id) => {
+  const remove = await Vehicle.destroy({where: {id} });
+
+  return remove;
+}
+
 module.exports = {
   create,
   getAllVehicles,
   getById,
+  removeVehicle,
 };

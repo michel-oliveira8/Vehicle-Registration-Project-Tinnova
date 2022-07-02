@@ -20,8 +20,16 @@ const getById = async (req, res) => {
   res.status(200).json(getVehicleById);
 }
 
+const removeVehicle = async (req, res) => {
+  const { id } = req.params;
+  await vehicleService.removeVehicle(id);
+
+  res.status(200).end();
+}
+
 module.exports = {
   create,
   getAllVehicles,
   getById,
+  removeVehicle,
 }
