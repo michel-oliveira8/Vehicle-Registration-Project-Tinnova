@@ -5,6 +5,9 @@ const Vehicle = (sequelize, DataTypes) => {
     ano: DataTypes.INTEGER,
     descricao: DataTypes.STRING,
     vendido: DataTypes.BOOLEAN,
+  },
+  {
+    timestamps: true,
   });
 
   return Vehicle;
