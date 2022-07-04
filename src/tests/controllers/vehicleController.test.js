@@ -48,15 +48,47 @@ describe('ROTA GET /veiculos/find/search', () => {
   const response = {};
   const request = {};
 
-  it('listar todos os veículo com status 200', async () => {
+  it('listar todos os veículos por fabricante e retornar com status 200', async () => {
     request.query = {};
     response.status = sinon.stub().returns(response);
     response.json = sinon.stub().returns(response);
 
-    sinon.stub(VehicleService, 'getBySearch').resolves([]);
-    await VehicleController.getBySearch(request, response);
+    sinon.stub(VehicleService, 'getBySearchMarca').resolves({});
+    await VehicleController.getBySearchMarca(request, response);
     expect(response.status.calledWith(200)).to.be.equal(true);
-    expect(response.json.calledWith([])).to.be.equal(true);
+    expect(response.json.calledWith({})).to.be.equal(true);
+  });
+});
+
+describe('ROTA GET /veiculos/find/year', () => {
+  const response = {};
+  const request = {};
+
+  it('listar todos os veículo por decada de fabricação, retornando com status 200', async () => {
+    request.query = {};
+    response.status = sinon.stub().returns(response);
+    response.json = sinon.stub().returns(response);
+
+    sinon.stub(VehicleService, 'getBySearchAno').resolves({});
+    await VehicleController.getBySearchAno(request, response);
+    expect(response.status.calledWith(200)).to.be.equal(true);
+    expect(response.json.calledWith({})).to.be.equal(true);
+  });
+});
+
+describe('ROTA GET /veiculos/find/sale', () => {
+  const response = {};
+  const request = {};
+
+  it('listar todos os veículos como não vendidos(ou vendidos), retornando com status 200', async () => {
+    request.query = {};
+    response.status = sinon.stub().returns(response);
+    response.json = sinon.stub().returns(response);
+
+    sinon.stub(VehicleService, 'getBySearchVendido').resolves({});
+    await VehicleController.getBySearchVendido(request, response);
+    expect(response.status.calledWith(200)).to.be.equal(true);
+    expect(response.json.calledWith({})).to.be.equal(true);
   });
 });
 
