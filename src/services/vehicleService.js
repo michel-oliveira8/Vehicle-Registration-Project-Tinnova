@@ -18,12 +18,28 @@ const getById = async (id) => {
   return getVehicleById;
 };
 
-const getBySearch = async (q) => {
-  const getQuery = await Vehicle.findAll({
+const getBySearchMarca = async (q) => {
+  const getQueryMarca = await Vehicle.findAll({
     where: { marca: q },
   });
 
-  return getQuery;
+  return { message: `${getQueryMarca.length} veículos` };
+};
+
+const getBySearchAno = async (q) => {
+  const getQueryAno = await Vehicle.findAll({
+    where: { ano: q },
+  });
+
+  return { message: `${getQueryAno.length} veículos` };
+};
+
+const getBySearchVendido = async (q) => {
+  const getQueryVendido = await Vehicle.findAll({
+    where: { vendido: q },
+  });
+
+  return { message: `${getQueryVendido.length} veículos` };
 };
 
 const updateDataVehicles = async (id, veiculo, marca, ano, descricao, vendido) => {
@@ -53,7 +69,9 @@ module.exports = {
   create,
   getAllVehicles,
   getById,
-  getBySearch,
+  getBySearchMarca,
+  getBySearchAno,
+  getBySearchVendido,
   updateDataVehicles,
   removeVehicle,
   updateSaleVehicle,
