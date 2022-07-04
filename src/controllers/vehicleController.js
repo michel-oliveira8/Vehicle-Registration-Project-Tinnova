@@ -20,10 +20,23 @@ const getById = async (req, res) => {
   res.status(200).json(getVehicleById);
 };
 
-const getBySearch = async (req, res) => {
+const getBySearchMarca = async (req, res) => {
   const { q } = req.query;
-  const getQuery = await vehicleService.getBySearch(q);
-  res.status(200).json(getQuery);
+  const getQueryMarca = await vehicleService.getBySearchMarca(q);
+  res.status(200).json(getQueryMarca);
+};
+
+const getBySearchAno = async (req, res) => {
+  const { q } = req.query;
+  const getQueryAno = await vehicleService.getBySearchAno(q);
+  res.status(200).json(getQueryAno);
+};
+
+const getBySearchVendido = async (req, res) => {
+  const { q } = req.query;
+  const trueOrFalse = q === 'true';
+  const getQueryVendido = await vehicleService.getBySearchVendido(trueOrFalse);
+  res.status(200).json(getQueryVendido);
 };
 
 const updateDataVehicles = async (req, res) => {
@@ -55,7 +68,9 @@ module.exports = {
   create,
   getAllVehicles,
   getById,
-  getBySearch,
+  getBySearchMarca,
+  getBySearchAno,
+  getBySearchVendido,
   updateDataVehicles,
   removeVehicle,
   updateSaleVehicle,
