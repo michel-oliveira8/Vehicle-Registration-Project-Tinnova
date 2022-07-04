@@ -57,7 +57,7 @@
     
     GET /veiculos/find/sale
     Retorna informação de quantos veículos estão como não vendidos na base
-    http://localhost:3001/veiculos/find/sale?q=false
+    Ex: http://localhost:3001/veiculos/find/sale?q=false
     
     GET /veiculos/find/year
     Retorna informação da distribuição de veículos por decada de fabricação
