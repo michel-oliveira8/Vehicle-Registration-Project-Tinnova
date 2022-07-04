@@ -55,8 +55,17 @@
     GET /veiculos
     Retorna todos os veículos
     
-    GET /veiculos/find
-    Retorna os veículos
+    GET /veiculos/find/sale
+    Retorna informação de quantos veículos estão como não vendidos na base
+    http://localhost:3001/veiculos/find/sale?q=false
+    
+    GET /veiculos/find/year
+    Retorna informação da distribuição de veículos por decada de fabricação
+    Ex: http://localhost:3001/veiculos/find/year?q=2020
+    
+    GET /veiculos/find/search
+    Retorna informação da distrbuição por fabricante
+    Ex: http://localhost:3001/veiculos/find/search?q=Volkswagen
     
     GET /veiculo/:id
     Retorna os detalhes do veículo
