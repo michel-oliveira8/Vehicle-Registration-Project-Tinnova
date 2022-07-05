@@ -45,10 +45,11 @@
 #### Scripts para fazer na raiz do projeto:
 
   - `npm run db:reset`(cria o banco, as colunas e popula o mesmo)
+  - `npm run dev` rodar servidor ma porta 3001 para realizar endpoits
 
 ## Para rodar os testes:
 
-  - na raiz da aplicação `npm test`
+  - `npm test`
   
 ## API Endopoints
 
